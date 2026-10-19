@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wacker Neuson 803 Dual Power mieten | Maschinenzwerg</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="images/logo-full.jpg" alt="Der Maschinenzwerg">
+          <span>Maschinenzwerg</span>
+        </a>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="bagger.html">1t Bagger</a></li>
+          <li><a href="dumper.html">Dumper</a></li>
+          <li><a href="anhaenger.html">Anhänger</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Wacker Neuson 803 Dual Power</h1>
+      <p>1-Tonnen Mini-Bagger – extrem kompakt & emissionsarm möglich</p>
+    </div>
+  </section>
+
+  <section class="page-content">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 50px;">
+        <img src="images/bagger.jpg" alt="Wacker Neuson 803 Dual Power" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow);">
+        <div>
+          <h2 style="font-size: 2.2rem; margin-bottom: 16px;">Der kleinste Profi</h2>
+          <p>Der Wacker Neuson 803 Dual Power ist einer der kompaktesten Mini-Bagger auf dem Markt. Mit nur 700 mm Breite passt er durch Türen und in engste Bereiche. Dank Dual-Power-Option kann er wahlweise mit Diesel oder emissionsfrei elektrisch betrieben werden.</p>
+          <p style="margin-top: 16px;">Ideal für Gartenbau, Sanierungen, Innenarbeiten und alle Stellen, wo Platz und Emissionen eine Rolle spielen.</p>
+        </div>
+      </div>
+
+      <div class="specs">
+        <h3>Technische Daten</h3>
+        <ul>
+          <li><span>Modell</span><strong>Wacker Neuson 803 Dual Power</strong></li>
+          <li><span>Betriebsgewicht</span><strong>ca. 1.050 – 1.110 kg</strong></li>
+          <li><span>Motor</span><strong>Yanmar 3-Zylinder Diesel, ca. 9,6 kW</strong></li>
+          <li><span>Grabtiefe max.</span><strong>1.763 mm</strong></li>
+          <li><span>Grabradius max.</span><strong>3.090 mm</strong></li>
+          <li><span>Ausschütthöhe</span><strong>ca. 2.012 mm</strong></li>
+          <li><span>Breite (eingefahren)</span><strong>700 mm</strong></li>
+          <li><span>Breite (ausgefahren)</span><strong>860 mm</strong></li>
+          <li><span>Transportmaße (L×B×H)</span><strong>ca. 2,83 × 0,70 × 2,26 m</strong></li>
+          <li><span>Besonderheiten</span><strong>Dual Power (Diesel + Elektro), Planierschild, Gummiketten</strong></li>
+        </ul>
+      </div>
+
+      <div class="specs">
+        <h3>Mietpreise</h3>
+        <ul>
+          <li><span>Tagesmiete</span><strong>75 € inkl. MwSt.</strong></li>
+          <li><span>Ab 5 Tagen</span><strong>65 € pro Tag inkl. MwSt.</strong></li>
+          <li><span>Kaution</span><strong>500 €</strong></li>
+          <li><span>Abholung / Lieferung</span><strong>auf Anfrage</strong></li>
+          <li><span>Einweisung</span><strong>inklusive</strong></li>
+        </ul>
+      </div>
+
+      <h3 style="margin-top:40px;">Verfügbarkeit & Reservierung</h3>
+      <p>Wähle freie Tage im Kalender aus. Belegte Tage sind markiert. Die Auswahl wird in die Anfrage übernommen.</p>
+      <div id="calendar" class="calendar-wrap"></div>
+      <div id="delivery-box" class="calendar-wrap" style="max-width:500px;"></div>
+      <div style="text-align:center; margin-top:20px;">
+        <a href="kontakt.html" class="btn" onclick="passDates()">Mit Auswahl anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>
+        <h4>Maschinenzwerg</h4>
+        <p>Maschinenverleih in Schleswig-Holstein</p>
+      </div>
+      <div>
+        <h4>Maschinen</h4>
+        <a href="bagger.html">1t Mini-Bagger</a>
+        <a href="dumper.html">XN 800 Dumper</a>
+        <a href="anhaenger.html">Anhänger 1,4 t</a>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2026 Maschinenzwerg. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script src="calendar.js"></script>
+  <script>
+    initCalendar('calendar', 75, 65);
+    initDelivery();
+    function passDates() {
+      const dates = document.getElementById('selected-dates')?.value || '';
+      const address = document.getElementById('customer-address')?.value || '';
+      const deliveryText = document.getElementById('delivery-result')?.innerText || '';
+      sessionStorage.setItem('rentalDates', dates);
+      sessionStorage.setItem('rentalMachine', 'Wacker Neuson 803 Dual Power');
+      sessionStorage.setItem('rentalAddress', address);
+      sessionStorage.setItem('rentalDelivery', deliveryText);
+    }
+  </script>
+</body>
+</html>

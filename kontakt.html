@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt & Anfrage | Maschinenzwerg</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="images/logo-full.jpg" alt="Der Maschinenzwerg">
+          <span>Maschinenzwerg</span>
+        </a>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="bagger.html">1t Bagger</a></li>
+          <li><a href="dumper.html">Dumper</a></li>
+          <li><a href="anhaenger.html">Anhänger</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Kontakt & Anfrage</h1>
+      <p>Unverbindlich Verfügbarkeit und Preise erfragen</p>
+    </div>
+  </section>
+
+  <section class="page-content">
+    <div class="container" style="max-width: 720px;">
+      <h2 style="margin-bottom: 12px;">Mietanfrage senden</h2>
+      <p style="margin-bottom: 36px; color: var(--muted);">Fülle das Formular aus – wir melden uns schnellstmöglich bei dir. Oder ruf einfach an.</p>
+
+      <form action="mailto:info@maschinenzwerg.de" method="post" enctype="text/plain" onsubmit="saveBooking(event)">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail *</label>
+          <input type="email" id="email" name="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="telefon">Telefon</label>
+          <input type="tel" id="telefon" name="Telefon">
+        </div>
+        <div class="form-group">
+          <label for="maschine">Gewünschte Maschine</label>
+          <select id="maschine" name="Maschine">
+            <option value="">Bitte wählen</option>
+            <option value="Wacker Neuson 803 Dual Power">1t Mini-Bagger (Wacker Neuson 803)</option>
+            <option value="XN 800 Dumper">XN 800 Dumper</option>
+            <option value="Kombi">Mehrere Maschinen</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="zeitraum">Ausgewählte Tage (aus Kalender)</label>
+          <input type="text" id="zeitraum" name="Zeitraum" placeholder="Wird automatisch aus Kalender übernommen" readonly>
+        </div>
+        <div class="form-group">
+          <label for="nachricht">Nachricht</label>
+          <textarea id="nachricht" name="Nachricht" placeholder="Weitere Details, Lieferadresse, besondere Wünsche..."></textarea>
+        </div>
+        <button type="submit">Anfrage senden</button>
+      </form>
+
+      <div style="margin-top: 60px; padding: 30px; background: var(--gray); border-radius: 20px;">
+        <h3 style="margin-bottom: 12px;">Direkter Kontakt</h3>
+        <p><strong>Telefon:</strong> [Deine Telefonnummer]</p>
+        <p><strong>E-Mail:</strong> info@maschinenzwerg.de</p>
+        <p><strong>Standort:</strong> Schleswig-Holstein (Bad Oldesloe / Lübeck-Bereich)</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>
+        <h4>Maschinenzwerg</h4>
+        <p>Maschinenverleih in Schleswig-Holstein</p>
+      </div>
+      <div>
+        <h4>Maschinen</h4>
+        <a href="bagger.html">1t Mini-Bagger</a>
+        <a href="dumper.html">Dumper</a>
+        <a href="anhaenger.html">Anhänger</a>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2026 Maschinenzwerg. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    }
+    // Prefill from calendar
+    const dates = sessionStorage.getItem('rentalDates');
+    const machine = sessionStorage.getItem('rentalMachine');
+    if (dates) document.getElementById('zeitraum').value = dates.replace(/,/g, ', ');
+    if (machine) {
+      const sel = document.getElementById('maschine');
+      for (let opt of sel.options) {
+        if (opt.value === machine) opt.selected = true;
+      }
+    }
+    const address = sessionStorage.getItem('rentalAddress');
+    const delivery = sessionStorage.getItem('rentalDelivery');
+    if (address || delivery) {
+      const msg = document.getElementById('nachricht');
+      let extra = '';
+      if (address) extra += 'Lieferadresse: ' + address + '\n';
+      if (delivery) extra += delivery + '\n';
+      if (extra) msg.value = extra + (msg.value || '');
+    }
+
+    function saveBooking(e) {
+      const booking = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        telefon: document.getElementById('telefon').value,
+        machine: document.getElementById('maschine').value,
+        zeitraum: document.getElementById('zeitraum').value,
+        nachricht: document.getElementById('nachricht').value,
+        timestamp: new Date().toLocaleString('de-DE')
+      };
+      const list = JSON.parse(localStorage.getItem('bookings') || '[]');
+      list.push(booking);
+      localStorage.setItem('bookings', JSON.stringify(list));
+      // form continues to mailto
+    }
+  </script>
+</body>
+</html>
