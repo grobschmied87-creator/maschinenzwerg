@@ -553,3 +553,7 @@ button[type="submit"]:hover {
   margin: 30px 0;
   font-weight: 600;
 }
+
+/* Hinweis: Testseite */
+.testbanner{position:sticky;top:0;z-index:10000;background:#c00;color:#fff;text-align:center;font-weight:800;font-size:1.15rem;letter-spacing:.05em;padding:10px 12px;box-shadow:0 2px 6px rgba(0,0,0,.35);}
+.testwatermark{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);z-index:9999;pointer-events:none;font-size:clamp(3rem,11vw,9rem);font-weight:900;color:rgba(200,0,0,.13);white-space:nowrap;user-select:none;}
