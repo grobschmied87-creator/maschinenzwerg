@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[FÜR TESTZWECKE] XN 800 Dumper mieten | Maschinenzwerg</title>
@@ -39,12 +39,19 @@
   <section class="page-content">
     <div class="container">
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 50px;">
-        <img src="images/dumper.jpg" alt="XN 800 Raupendumper" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow);">
+        <div id="dumper-slider"></div>
         <div>
           <h2 style="font-size: 2.2rem; margin-bottom: 16px;">Der wendige Materialtransporter</h2>
           <p>Der XN 800 ist ein extrem kompakter Raupendumper mit 800 kg Nutzlast. Dank seiner geringen Breite und des Raupenfahrwerks kommt er auch auf engem und unebenem Gelände problemlos zum Einsatz.</p>
           <p style="margin-top: 16px;">Perfekt als Ergänzung zum Mini-Bagger für den schnellen Abtransport von Erde, Schutt und Material.</p>
         </div>
+      </div>
+
+      <h3 style="margin:40px 0 20px;">Weitere Bilder (Platzhalter)</h3>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-bottom:40px;">
+        <img src="images/placeholders/dumper1.jpg" alt="Dumper Platzhalter 1" style="width:100%; border-radius:16px; height:180px; object-fit:cover;">
+        <img src="images/placeholders/dumper2.jpg" alt="Dumper Platzhalter 2" style="width:100%; border-radius:16px; height:180px; object-fit:cover;">
+        <img src="images/placeholders/dumper3.jpg" alt="Dumper Platzhalter 3" style="width:100%; border-radius:16px; height:180px; object-fit:cover;">
       </div>
 
       <div class="specs">
@@ -108,9 +115,16 @@
   </footer>
 
   <script src="calendar.js"></script>
+  <script src="slider.js"></script>
   <script>
     initCalendar('calendar', 75, 65);
     initDelivery();
+    initSlider('dumper-slider', [
+      'images/dumper.jpg',
+      'images/placeholders/dumper1.jpg',
+      'images/placeholders/dumper2.jpg',
+      'images/placeholders/dumper3.jpg'
+    ]);
     function passDates() {
       const dates = document.getElementById('selected-dates')?.value || '';
       const address = document.getElementById('customer-address')?.value || '';

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[FÜR TESTZWECKE] Maschinenzwerg – Maschinenverleih in Schleswig-Holstein</title>
@@ -49,26 +49,26 @@
       <p class="section-subtitle">Kompakt, stark und sofort einsatzbereit – perfekt für Garten, Bau und Erdarbeiten.</p>
       <div class="grid">
         <div class="card">
-          <img src="images/gnome-bagger.png" alt="Wacker Neuson 803 Dual Power mit Zwerg">
+          <div id="bagger-card-slider"></div>
           <div class="card-content">
-            <h3>1t Mini-Bagger<br>Wacker Neuson 803 Dual Power</h3>
-            <p>Extrem kompakter Mini-Bagger mit Dual-Power-Option (Diesel + Elektro). Ideal für enge Baustellen, Garten und Innenräume.</p>
+            <h3>1t Mini-Bagger</h3>
+            <p>Kompakt, Dual-Power, ideal für enge Stellen.</p>
             <a href="bagger.html" class="btn">Details & Miete</a>
           </div>
         </div>
         <div class="card">
-          <img src="images/dumper.jpg" alt="XN 800 Raupendumper">
+          <div id="dumper-card-slider"></div>
           <div class="card-content">
             <h3>XN 800 Dumper</h3>
-            <p>Kompakter Raupendumper mit 800 kg Nutzlast. Perfekt für den Transport von Erde und Material auf engem Raum.</p>
+            <p>800 kg Nutzlast, wendig auf engem Raum.</p>
             <a href="dumper.html" class="btn">Details & Miete</a>
           </div>
         </div>
         <div class="card">
-          <img src="images/anhaenger.jpg" alt="Maschinenanhänger 1,4t">
+          <div id="anhaenger-card-slider"></div>
           <div class="card-content">
-            <h3>Maschinenanhänger 1,4 t</h3>
-            <p>Robuster Zweiachs-Anhänger für den sicheren Transport von Mini-Bagger, Dumper oder Materialien.</p>
+            <h3>Anhänger 1,4 t</h3>
+            <p>Für Bagger, Dumper und Material.</p>
             <a href="anhaenger.html" class="btn">Details & Miete</a>
           </div>
         </div>
@@ -138,10 +138,29 @@
     </div>
   </footer>
 
+  <script src="slider.js"></script>
   <script>
     function toggleMenu() {
       document.getElementById('nav-menu').classList.toggle('active');
     }
+    initSlider('bagger-card-slider', [
+      'images/gnome-bagger.png',
+      'images/placeholders/bagger1.jpg',
+      'images/placeholders/bagger2.jpg',
+      'images/placeholders/bagger3.jpg'
+    ]);
+    initSlider('dumper-card-slider', [
+      'images/dumper.jpg',
+      'images/placeholders/dumper1.jpg',
+      'images/placeholders/dumper2.jpg',
+      'images/placeholders/dumper3.jpg'
+    ]);
+    initSlider('anhaenger-card-slider', [
+      'images/anhaenger.jpg',
+      'images/placeholders/anhaenger1.jpg',
+      'images/placeholders/anhaenger2.jpg',
+      'images/placeholders/anhaenger3.jpg'
+    ]);
   </script>
 </body>
 </html>

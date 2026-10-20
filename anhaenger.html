@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[FÜR TESTZWECKE] Maschinenanhänger 1,4 t mieten | Maschinenzwerg</title>
@@ -39,12 +39,19 @@
   <section class="page-content">
     <div class="container">
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 50px;">
-        <img src="images/anhaenger.jpg" alt="Maschinenanhänger 1,4 t" style="width: 100%; border-radius: 20px; background: #f5f5f5; box-shadow: var(--shadow);">
+        <div id="anhaenger-slider"></div>
         <div>
           <h2 style="font-size: 2.2rem; margin-bottom: 16px;">Sicherer Transport</h2>
           <p>Unser Maschinenanhänger mit 1,4 Tonnen zulässigem Gesamtgewicht ist ideal für den Transport des Mini-Baggers, des Dumpers oder von Baumaterialien. Stabiler Aufbau mit Holzbelag und Zweiachsfahrwerk.</p>
           <p style="margin-top: 16px;">Perfekt in Kombination mit unseren Mietmaschinen – so holst du alles in einem Zug ab.</p>
         </div>
+      </div>
+
+      <h3 style="margin:40px 0 20px;">Weitere Bilder (Platzhalter)</h3>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-bottom:40px;">
+        <img src="images/placeholders/anhaenger1.jpg" alt="Anhänger Platzhalter 1" style="width:100%; border-radius:16px; height:180px; object-fit:cover;">
+        <img src="images/placeholders/anhaenger2.jpg" alt="Anhänger Platzhalter 2" style="width:100%; border-radius:16px; height:180px; object-fit:cover;">
+        <img src="images/placeholders/anhaenger3.jpg" alt="Anhänger Platzhalter 3" style="width:100%; border-radius:16px; height:180px; object-fit:cover;">
       </div>
 
       <div class="coming-soon">
@@ -102,10 +109,17 @@
     </div>
   </footer>
 
+  <script src="slider.js"></script>
   <script>
     function toggleMenu() {
       document.getElementById('nav-menu').classList.toggle('active');
     }
+    initSlider('anhaenger-slider', [
+      'images/anhaenger.jpg',
+      'images/placeholders/anhaenger1.jpg',
+      'images/placeholders/anhaenger2.jpg',
+      'images/placeholders/anhaenger3.jpg'
+    ]);
   </script>
 </body>
 </html>

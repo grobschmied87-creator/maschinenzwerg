@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[FÜR TESTZWECKE] Wacker Neuson 803 Dual Power mieten | Maschinenzwerg</title>
@@ -39,12 +39,19 @@
   <section class="page-content">
     <div class="container">
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 50px;">
-        <img src="images/gnome-bagger.png" alt="Wacker Neuson 803 Dual Power mit Zwerg" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow);">
+        <div id="bagger-slider"></div>
         <div>
           <h2 style="font-size: 2.2rem; margin-bottom: 16px;">Der kleinste Profi</h2>
           <p>Der Wacker Neuson 803 Dual Power ist einer der kompaktesten Mini-Bagger auf dem Markt. Mit nur 700 mm Breite passt er durch Türen und in engste Bereiche. Dank Dual-Power-Option kann er wahlweise mit Diesel oder emissionsfrei elektrisch betrieben werden.</p>
           <p style="margin-top: 16px;">Ideal für Gartenbau, Sanierungen, Innenarbeiten und alle Stellen, wo Platz und Emissionen eine Rolle spielen.</p>
         </div>
+      </div>
+
+      <h3 style="margin:40px 0 20px;">Weitere Bilder (Platzhalter)</h3>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-bottom:40px;">
+        <img src="images/placeholders/bagger1.jpg" alt="Bagger Platzhalter 1" style="width:100%; border-radius:16px; height:180px; object-fit:cover;">
+        <img src="images/placeholders/bagger2.jpg" alt="Bagger Platzhalter 2" style="width:100%; border-radius:16px; height:180px; object-fit:cover;">
+        <img src="images/placeholders/bagger3.jpg" alt="Bagger Platzhalter 3" style="width:100%; border-radius:16px; height:180px; object-fit:cover;">
       </div>
 
       <div class="specs">
@@ -145,9 +152,16 @@
   </footer>
 
   <script src="calendar.js"></script>
+  <script src="slider.js"></script>
   <script>
     initCalendar('calendar', 75, 65);
     initDelivery();
+    initSlider('bagger-slider', [
+      'images/gnome-bagger.png',
+      'images/placeholders/bagger1.jpg',
+      'images/placeholders/bagger2.jpg',
+      'images/placeholders/bagger3.jpg'
+    ]);
     function passDates() {
       const dates = document.getElementById('selected-dates')?.value || '';
       const address = document.getElementById('customer-address')?.value || '';
